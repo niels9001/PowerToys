@@ -17,5 +17,7 @@ namespace colorPickerAlpha
 	public:
 		MainPage();
 
+	private:
+		void DeleteConfirmation_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
 	};
 }

@@ -25,3 +25,9 @@ MainPage::MainPage()
 {
 	InitializeComponent();
 }
+
+
+void colorPickerAlpha::MainPage::DeleteConfirmation_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
+{
+
+}
