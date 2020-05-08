@@ -4,9 +4,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:colorPickerAlpha"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:muxc="using:Windows.UI.Xaml.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Width="600" Height="900">
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Width="600" Height="150">
 
     <Grid>
         <CommandBar>
@@ -28,14 +28,16 @@
             </CommandBar.Content>
         </CommandBar>
 
-        <muxc:ColorPicker
-      IsMoreButtonVisible="False"
-      IsColorSliderVisible="True"
-      IsColorChannelTextInputVisible="True"
-      IsHexInputVisible="True"
-      IsAlphaEnabled="False"
-      IsAlphaSliderVisible="True"
-      IsAlphaTextInputVisible="True" Margin="0,160,0,-160" />
 
+        <Button Content="color Picker Alpha" HorizontalAlignment="Center" FontSize="20" Margin="0,84,0,0" VerticalAlignment="Top">
+            <Button.Flyout>
+                <Flyout>
+                    <StackPanel>
+                        <TextBlock Style="{ThemeResource BaseTextBlockStyle}" Text="All items will be removed. Do you want to continue?" Margin="0,0,0,12" />
+                        <Button Click="DeleteConfirmation_Click" Content="Yes, empty my cart" />
+                    </StackPanel>
+                </Flyout>
+            </Button.Flyout>
+        </Button>
     </Grid>
 </Page>
