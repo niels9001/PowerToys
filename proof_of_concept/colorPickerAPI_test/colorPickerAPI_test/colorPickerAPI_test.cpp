@@ -1,6 +1,7 @@
 #include<windows.h>
 #include<iostream>
-#include<ShellScalingApi.h>
+#include<ShellscalingApi.h>
+#include<shtypes.h>
 #include <cmath>
 
 using namespace std;
@@ -9,6 +10,13 @@ using namespace std;
 
 int main()
 {
+
+    if (SetProcessDpiAwarenessContext(DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE)) {
+
+    }
+    /*if (SetProcessDpiAwareness(PROCESS_SYSTEM_DPI_AWARE)) {
+
+    }*/
     //Get a console handle
     HWND myconsole = GetConsoleWindow();
     //Get a handle to device context
@@ -28,9 +36,9 @@ int main()
 
     POINT p;
     HMONITOR monitor;
-    DEVICE_SCALE_FACTOR pScale = SCALE_100_PERCENT;
+    DEVICE_SCALE_FACTOR pScale = DEVICE_SCALE_FACTOR::SCALE_100_PERCENT;
     int scalefc;
-    HRESULT scaleFactor;
+    HRESULT err2;
     auto err = GetLastError();
     COLORREF pixelColor;
     HDC mydc = GetDC(NULL);
@@ -39,16 +47,15 @@ int main()
     double i = 0;
     while (true) {
 
-        if (GetCursorPos(&p))
+        
+        if (GetPhysicalCursorPos(&p))
         {
             //cout << "cursor position: ( "<< p.x << ","<< p.y<< ")" << endl;
             monitor = MonitorFromPoint(p, MONITOR_DEFAULTTONEAREST);
-            if (GetScaleFactorForMonitor(monitor, &pScale)) {
-                cout << "yo";
-            }
-            scalefc = (int)pScale;
-            x = p.x * (scalefc / 100);
-            y = p.y * (scalefc / 100);
+            err2 = GetScaleFactorForMonitor(monitor, &pScale);
+            scalefc = 100; //static_cast<int>(pScale);
+            x = p.x * (double)(scalefc / 100);
+            y = p.y * (double)(scalefc / 100);
 
             pixelColor = GetPixel(mydc, x, y);
             //cout << "color at pixel: " << pixelColor << endl;
