@@ -14,9 +14,21 @@
             </AppBarButton.Icon>
             <AppBarButton.Flyout>
                 <MenuFlyout>
-                    <MenuFlyoutItem Text="Region" Click="ClickHandler" Tag="region"/>
-                    <MenuFlyoutItem Text="Window" Click="ClickHandler" Tag="window"/>
-                    <MenuFlyoutItem Text="Fullscreen" Click="ClickHandler" Tag="fullscreen"/>
+                    <MenuFlyoutItem Text="Region" Click="ClickHandler" Tag="region">
+                        <MenuFlyoutItem.Icon>
+                            <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xF7ED;"/>
+                        </MenuFlyoutItem.Icon>
+                    </MenuFlyoutItem>
+                    <MenuFlyoutItem Text="Window" Click="ClickHandler" Tag="window">
+                        <MenuFlyoutItem.Icon>
+                            <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xF7ED;"/>
+                        </MenuFlyoutItem.Icon>
+                    </MenuFlyoutItem>
+                    <MenuFlyoutItem Text="Fullscreen" Click="ClickHandler" Tag="fullscreen">
+                        <MenuFlyoutItem.Icon>
+                            <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xF7ED;"/>
+                        </MenuFlyoutItem.Icon>
+                    </MenuFlyoutItem>
                 </MenuFlyout>
             </AppBarButton.Flyout>
 
