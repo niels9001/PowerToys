@@ -24,6 +24,6 @@ namespace winrt::GifRecorder::implementation
 
     void MainPage::ClickHandler(IInspectable const&, RoutedEventArgs const&)
     {
-        myButton().Content(box_value(L"Clicked"));
+        toolbar().Content(box_value(L"Clicked"));
     }
 }

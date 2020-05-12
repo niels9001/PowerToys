@@ -7,7 +7,22 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-        <Button x:Name="myButton" Click="ClickHandler">Click Me</Button>
-    </StackPanel>
+    <CommandBar x:Name="toolbar">
+        <AppBarButton Label="Select">
+            <AppBarButton.Icon>
+                <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xF4A9;"/>
+            </AppBarButton.Icon>
+            <AppBarButton.Flyout>
+                <MenuFlyout>
+                    <MenuFlyoutItem Text="Region" Click="ClickHandler" Tag="region"/>
+                    <MenuFlyoutItem Text="Window" Click="ClickHandler" Tag="window"/>
+                    <MenuFlyoutItem Text="Fullscreen" Click="ClickHandler" Tag="fullscreen"/>
+                </MenuFlyout>
+            </AppBarButton.Flyout>
+
+        </AppBarButton>
+        <AppBarSeparator/>
+        <AppBarButton Icon="Play" Label="Play"/>
+        <AppBarButton Icon="Stop" Label="Stop"/>
+    </CommandBar>
 </Page>
