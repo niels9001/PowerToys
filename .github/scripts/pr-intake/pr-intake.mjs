@@ -199,12 +199,13 @@ export function deriveProductLabelsFromPaths(paths, currentLabels = []) {
     .map((entry) => typeof entry === 'string' ? entry : entry?.name)
     .filter((label) => typeof label === 'string' && label.startsWith('Product-'));
   const matchedProductLabels = [...existingProductLabels, ...labels];
-  if (matchedProductLabels.some((label) => label !== 'Product-Settings')) {
-    labels.delete('Product-Settings');
-  }
-  if (matchedProductLabels.some(
+  const hasSpecificProductLabel = matchedProductLabels.some(
     (label) => !['Product-General', 'Product-Settings'].includes(label),
-  )) {
+  );
+  if (hasSpecificProductLabel) {
+    labels.delete('Product-General');
+    labels.delete('Product-Settings');
+  } else if (matchedProductLabels.includes('Product-Settings')) {
     labels.delete('Product-General');
   }
 

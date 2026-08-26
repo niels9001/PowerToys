@@ -205,6 +205,13 @@ test('path product labels cover module and shared roots additively', () => {
     ['Product-General'],
   );
   assert.deepEqual(
+    deriveProductLabelsFromPaths([
+      'src/common/Common.UI/Controls/SettingsCard.xaml',
+      'src/settings-ui/Settings.UI/SettingsXAML/Views/DashboardPage.xaml',
+    ]),
+    ['Product-Settings'],
+  );
+  assert.deepEqual(
     deriveProductLabelsFromPaths(
       ['src/runner/main.cpp'],
       ['Product-FancyZones'],

@@ -10,9 +10,9 @@ API.
 
 1. Read the current PR and changed files through the GitHub API.
 2. Add recognized `Product-*` labels from the historical path mapping. The
-   longest path prefix wins, generic Settings/General labels are suppressed
-   when a more specific product matches, and existing product labels are never
-   removed.
+   longest path prefix wins, Settings takes precedence over General, both
+   generic labels are suppressed when a more specific product matches, and
+   existing product labels are never removed.
 3. Re-fetch mergeability a few
    times when GitHub still reports it as unknown so a conflicting PR is never
    treated as ready by default.
